@@ -10,7 +10,7 @@ public class MyLinkedList{
            node.next=null;
            head.next=node;
            tail=node;
-           System.out.println();
+
        }
 
     }
@@ -22,7 +22,7 @@ public class MyLinkedList{
            tempNode.next=node;
            node.next=null;
            tail=node;
-            System.out.println();
+
         }
         }
 
