@@ -44,7 +44,34 @@ Node tempNode;
         tail = node;
         size++;
     }
-
+    public int searchByValue(int value) {
+        Node tempNode;
+        tempNode = head;
+        if (head != null) {
+            for (int i = 0; i < size; i++) {
+                if (tempNode.value == value) {
+                    System.out.print("index is: ");
+                    return i;
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        return -1;
+    }
+    public int searchByIndex(int index) {
+        Node tempNode;
+        tempNode = head;
+        if (head != null) {
+            for (int i = 0; i < size; i++) {
+                if (i==index) {
+                    System.out.print("value is: ");
+                    return tempNode.value;
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        return -1;
+    }
     public void traversLinkedList() {
         Node tempNode;
         tempNode = head;

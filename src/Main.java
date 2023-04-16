@@ -11,6 +11,8 @@ public class Main {
         myLinkedList.addNodeAtLast(node1);
         myLinkedList.addNodeAtLocation(node2,1);
         myLinkedList.traversLinkedList();
+        System.out.println(myLinkedList.searchByValue(20));
+        System.out.println(myLinkedList.searchByIndex(2));
 
     }
 }
