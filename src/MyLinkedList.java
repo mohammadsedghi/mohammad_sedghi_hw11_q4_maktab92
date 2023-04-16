@@ -1,10 +1,11 @@
-public class MyLinkedList {
+public class MyLinkedList<T> {
 
-    Node head;
-    Node tail;
-    int size = 0;
 
-    public void createLinkedList(Node node) {
+  private   Node<T> head;
+  private   Node<T> tail;
+   private int size = 0;
+
+    public void createLinkedList(Node<T> node) {
 
         node.next = null;
         head = node;
@@ -14,8 +15,8 @@ public class MyLinkedList {
 
     }
 
-    public void addNodeAtLast(Node node) {
-        Node tempNode;
+    public void addNodeAtLast(Node<T> node) {
+        Node<T> tempNode;
         tempNode = head;
         if (head == null) {
             System.out.println("this list is empty");
@@ -30,8 +31,8 @@ public class MyLinkedList {
         size++;
     }
 
-    public void addNodeAtLocation(Node node, int location) {
-        Node tempNode;
+    public void addNodeAtLocation(Node<T> node, int location) {
+        Node<T> tempNode;
         tempNode = head;
         if (head == null) {
             System.out.println("this list is empty");
@@ -46,7 +47,7 @@ public class MyLinkedList {
         size++;
     }
 
-    public int searchByValue(int value) {
+    public int searchByValue(T value) {
         Node tempNode;
         tempNode = head;
         if (head != null) {
@@ -61,8 +62,8 @@ public class MyLinkedList {
         return -1;
     }
 
-    public int searchByIndex(int index) {
-        Node tempNode;
+    public T searchByIndex(int index) {
+        Node<T> tempNode;
         tempNode = head;
         if (head != null) {
             for (int i = 0; i < size; i++) {
@@ -73,11 +74,12 @@ public class MyLinkedList {
                 tempNode = tempNode.next;
             }
         }
-        return -1;
+        T t=null;
+        return t ;
     }
 
     public void removeNodeByIndex(int index) {
-        Node tempNode;
+        Node<T> tempNode;
         tempNode = head;
         if (head == null) System.out.println("this list is empty");
         else if (index > 0) {
@@ -89,12 +91,28 @@ public class MyLinkedList {
             tempNode.next = tempNode.next.next;
             size--;
 
-        }if(index==0){head=tempNode.next;}
+        }
+        if (index == 0) {
+            head = tempNode.next;
+        }
 
     }
 
+    public void removeNodeByValue(T value) {
+        Node<T> tempNode;
+        tempNode = head;
+        if (head == null) System.out.println("this list is empty");
+        for (int i = 0; i < size; i++) {
+            if (tempNode.value == value) {
+                removeNodeByIndex(i);
+               return;
+            }
+            tempNode = tempNode.next;
+        }
+    }
+
     public void traversLinkedList() {
-        Node tempNode;
+        Node<T> tempNode;
         tempNode = head;
         if (head == null) {
             System.out.println("this list is empty");

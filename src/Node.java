@@ -1,5 +1,5 @@
-public  class Node{
-    int value;
-    Node next;
+public  class Node<E>{
+    E value;
+    Node<E> next;
 
 }
