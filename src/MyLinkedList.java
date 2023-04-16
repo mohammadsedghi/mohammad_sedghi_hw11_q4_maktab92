@@ -29,6 +29,21 @@ Node tempNode;
         tail = node;
         size++;
     }
+    public void addNodeAtLocation(Node node,int location){
+        Node tempNode;
+        tempNode=head;
+        if (head == null) {
+            System.out.println("this list is empty");
+            return;
+        } else
+            for (int i = 0; i <location-1 ; i++) {
+                tempNode=tempNode.next;
+            }
+        node.next = tempNode.next;
+        tempNode.next= node;
+        tail = node;
+        size++;
+    }
 
     public void traversLinkedList() {
         Node tempNode;

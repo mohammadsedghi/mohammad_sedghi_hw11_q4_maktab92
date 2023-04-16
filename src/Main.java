@@ -9,7 +9,7 @@ public class Main {
         node2.value = 30;
         myLinkedList.createLinkedList(node);
         myLinkedList.addNodeAtLast(node1);
-        myLinkedList.addNodeAtLast(node2);
+        myLinkedList.addNodeAtLocation(node2,1);
         myLinkedList.traversLinkedList();
 
     }
