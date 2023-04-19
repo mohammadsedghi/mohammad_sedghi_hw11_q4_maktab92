@@ -1,10 +1,12 @@
-public class MyLinkedList<T> {
+public class MyLinkedList<T>  {
 
 
   private   Node<T> head;
   private   Node<T> tail;
    private int size = 0;
-
+//public void add(T value){
+//   Node<T> node=new Node<T>(value);
+//}
     public void createLinkedList(Node<T> node) {
 
         node.next = null;
@@ -37,14 +39,23 @@ public class MyLinkedList<T> {
         if (head == null) {
             System.out.println("this list is empty");
             return;
-        } else
+        } else {
+            if (location==0){
+                node.next = head;
+                head = node;
+                size++;
+                return;
+            }
+
             for (int i = 0; i < location - 1; i++) {
                 tempNode = tempNode.next;
             }
-        node.next = tempNode.next;
-        tempNode.next = node;
-        tail = node;
-        size++;
+            node.next = tempNode.next;
+            tempNode.next = node;
+            tail = node;
+            size++;
+        }
+
     }
 
     public int searchByValue(T value) {
@@ -106,6 +117,10 @@ public class MyLinkedList<T> {
             if (tempNode.value == value) {
                 removeNodeByIndex(i);
                return;
+            }
+            if (tempNode.next==null){
+                System.out.println("this value is not found");
+                return;
             }
             tempNode = tempNode.next;
         }
